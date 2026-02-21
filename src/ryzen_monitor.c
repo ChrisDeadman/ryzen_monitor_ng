@@ -978,6 +978,7 @@ int init_pmt(pm_table* pmt, unsigned int force) {
     //Prevent illegal memory access
     if (obj.pm_table_size < pmt->min_size) {
         fprintf(stderr, "Selected PM Table is larger than the PM Table returned by the SMU.\n");
+        fprintf(stderr, "PM Table needs %u bytes but SMU reports %u bytes.\n", pmt->min_size, obj.pm_table_size);
         return -103;
     }
 

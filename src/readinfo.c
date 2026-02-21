@@ -37,8 +37,8 @@ extern smu_obj_t obj;
 
 #define READ_SMN_V1(offs) { if (smu_read_smn_addr(&obj, offs + offset, &value1) != SMU_Return_OK) goto _READ_ERROR; }
 #define READ_SMN_V2(offs) { if (smu_read_smn_addr(&obj, offs + offset, &value2) != SMU_Return_OK) goto _READ_ERROR; }
-#define SEND_CMD_RSMU(op) { if (smu_send_command(&obj, op, &args, TYPE_RSMU) != SMU_Return_OK) goto _SEND_ERROR; }
-#define SEND_CMD_MP1(op) { if (smu_send_command(&obj, op, &args, TYPE_MP1) != SMU_Return_OK) goto _SEND_ERROR; }
+#define SEND_CMD_RSMU(op) { if (smu_send_command(&obj, op, &args, SMU_TYPE_RSMU) != SMU_Return_OK) goto _SEND_ERROR; }
+#define SEND_CMD_MP1(op) { if (smu_send_command(&obj, op, &args, SMU_TYPE_MP1) != SMU_Return_OK) goto _SEND_ERROR; }
 
 const char* get_processor_name() {
     unsigned int eax, ebx, ecx, edx;
